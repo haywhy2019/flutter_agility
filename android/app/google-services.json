@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "292056273653",
+    "project_id": "agility-87280",
+    "storage_bucket": "agility-87280.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292056273653:android:af8fd51f1f475e33222bbc",
+        "android_client_info": {
+          "package_name": "com.example.agility_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292056273653-d499niq5c78keov0nvvn78qpeatt2pa9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmhCHmSsJw7qcI92xyIeK01ateXVT-x2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292056273653-d499niq5c78keov0nvvn78qpeatt2pa9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
