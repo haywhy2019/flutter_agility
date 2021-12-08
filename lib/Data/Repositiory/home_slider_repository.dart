@@ -14,26 +14,29 @@ class HomeSliderRepository implements HomeRepository {
   Future<List<FirebaseFile>> listAll(String path) async {
     final ref = FirebaseStorage.instance.ref(path);
     final result = await ref.listAll();
+    try {
+      final urls = await _getDownloadLinks(result.items);
+      // ignore: avoid_print
 
-    final urls = await _getDownloadLinks(result.items);
-    // ignore: avoid_print
+      return urls
+          .asMap()
+          .map((index, url) {
+            final ref = result.items[index];
+            final name = ref.name;
+            final length = result.items.length;
+            final file = FirebaseFile(
+                ref: ref,
+                name: name,
+                url: url,
+                index: result.items.indexOf(ref),
+                length: length);
 
-    return urls
-        .asMap()
-        .map((index, url) {
-          final ref = result.items[index];
-          final name = ref.name;
-          final length = result.items.length;
-          final file = FirebaseFile(
-              ref: ref,
-              name: name,
-              url: url,
-              index: result.items.indexOf(ref),
-              length: length);
-
-          return MapEntry(index, file);
-        })
-        .values
-        .toList();
+            return MapEntry(index, file);
+          })
+          .values
+          .toList();
+    } catch (err) {
+      rethrow;
+    }
   }
 }

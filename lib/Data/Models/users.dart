@@ -1,18 +1,36 @@
-class Users {
+// ignore_for_file: must_be_immutable
+
+import 'package:equatable/equatable.dart';
+
+class Users extends Equatable {
   String id;
   String name;
   String title;
   int phoneNumber;
-  String whatsapp;
+  String whatsApp;
   String image;
+  String description;
 
   Users(
-      {required this.id,
+      {this.id = '',
       required this.name,
       required this.title,
       required this.phoneNumber,
-      required this.whatsapp,
-      required this.image});
+      required this.whatsApp,
+      this.image = '',
+      this.description = ""});
+
+  @override
+  List<Object> get props => [name, title, phoneNumber, whatsApp];
+
+  factory Users.fromJson(Map<String, Object?> jsonMap) {
+    return Users(
+      name: jsonMap['name'] as String,
+      title: jsonMap['title'] as String,
+      phoneNumber: jsonMap['phoneNumber'] as int,
+      whatsApp: jsonMap['whatsApp'] as String,
+    );
+  }
 }
 
 List<Users> data = [
@@ -21,7 +39,7 @@ List<Users> data = [
     name: "Dimeji Johnson",
     title: "Software Engineer",
     phoneNumber: 07064959292,
-    whatsapp: "dimeji@sasays.tech",
+    whatsApp: "dimeji@sasays.tech",
     image: "assets/images/man.png",
   ),
   Users(
@@ -29,7 +47,7 @@ List<Users> data = [
     name: "Dimeji Johnson",
     title: "Software Engineer",
     phoneNumber: 07064959292,
-    whatsapp: "dimeji@sasays.tech",
+    whatsApp: "dimeji@sasays.tech",
     image: "assets/images/man.png",
   ),
   Users(
@@ -37,7 +55,7 @@ List<Users> data = [
     name: "Dimeji Johnson",
     title: "Software Engineer",
     phoneNumber: 07064959292,
-    whatsapp: "dimeji@sasays.tech",
+    whatsApp: "dimeji@sasays.tech",
     image: "assets/images/woman.png",
   ),
 ];
