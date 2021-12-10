@@ -13,7 +13,6 @@ class FashionBloc extends Bloc<FashionEvent, FashionState> {
   final FashionRepository _fashionRepository;
   FashionBloc(this._fashionRepository) : super(const FashionInitial()) {
     on<FashionEvent>((event, emit) async {
-      print(event);
       if (event is AddFashion) {
         emit(const FashionLoading());
         try {
@@ -30,9 +29,13 @@ class FashionBloc extends Bloc<FashionEvent, FashionState> {
         emit(const FashionInitial());
       }
       if (event is FetchFashion) {
+        emit(const FashionLoading());
         try {
           final allFashion = await _fashionRepository.fetchFashion();
-          emit(const FashionLoaded());
+
+          emit(FashionLoaded(allFashion));
+        } on SocketException {
+          emit(const FashionHttpError("No Internet Connection"));
         } catch (err) {
           emit(const FashionError("An Error Occured"));
         }

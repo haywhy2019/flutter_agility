@@ -215,6 +215,7 @@ class _AddServiceState extends State<AddService> {
                                   backgroundColor:
                                       MaterialStateProperty.all(primaryCol)),
                               onPressed: () {
+                                print("${description.text}, description");
                                 if (_formKey.currentState!.validate()) {
                                   final data = Users(
                                     name: fullName.text,
@@ -223,6 +224,7 @@ class _AddServiceState extends State<AddService> {
                                     whatsApp: whatsApp.text,
                                     description: description.text,
                                   );
+
                                   context
                                       .read<FashionBloc>()
                                       .add(AddFashion(data));
@@ -247,29 +249,52 @@ class _AddServiceState extends State<AddService> {
                   }
                   if (state is FashionAdded) {
                     return AlertDialog(
-                      backgroundColor: primaryCol,
+                      backgroundColor: Colors.green,
                       title: const Text(
-                        "Notice",
+                        "Success",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.white),
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 40),
                       ),
                       content: SizedBox(
                         height: 100,
                         child: Column(
                           children: const [
+                            Icon(
+                              Icons.check_circle,
+                              color: Colors.white,
+                              size: 60,
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text(
-                              "We do not have any partnership with the services listed here, We just make it easy for you to access this services.",
-                              style: TextStyle(color: Colors.white),
+                              "New Fashion Vendor Added",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.center,
                             )
                           ],
                         ),
                       ),
                       actions: [
                         ElevatedButton(
+                            style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(Colors.white)),
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: Text("Okay")),
+                            child: const Text(
+                              "Okay",
+                              style: TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
                       ],
                     );
                   } else if (state is FashionHttpError) {
@@ -346,7 +371,7 @@ class _AddServiceState extends State<AddService> {
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 fixedSize: const Size.fromWidth(200),
-                                primary: primaryCol,
+                                primary: Colors.red,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(10)),

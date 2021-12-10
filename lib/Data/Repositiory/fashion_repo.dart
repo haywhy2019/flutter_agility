@@ -14,7 +14,6 @@ class FashionRepository implements ServiceRepository {
       'https://agility-87280-default-rtdb.firebaseio.com/fashion.json');
   @override
   Future addFashion(Users data) async {
-    // Simulate network delay
     try {
       final response = await http.post(url,
           body: jsonEncode({
@@ -22,6 +21,7 @@ class FashionRepository implements ServiceRepository {
             "title": data.title,
             "phoneNumber": data.phoneNumber,
             "whatsApp": data.whatsApp,
+            "description": data.description
           }));
 
       Map responseObj = json.decode(response.body);
@@ -33,9 +33,16 @@ class FashionRepository implements ServiceRepository {
 
   Future fetchFashion() async {
     try {
-      return await http.get(url);
+      final response = await http.get(url);
+      final responseDecode = json.decode(response.body) as Map<String, dynamic>;
+      final List<Users> users = [];
+      responseDecode.forEach((key, value) => {
+            users.add(Users.fromJson(value, key)),
+          });
+      // print(responseDecode);
+      return users;
     } catch (err) {
-      return "An Error Occured";
+      rethrow;
     }
   }
 }

@@ -18,7 +18,10 @@ class FashionLoading extends FashionState {
 }
 
 class FashionLoaded extends FashionState {
-  const FashionLoaded();
+  final dynamic data;
+  const FashionLoaded(this.data);
+  @override
+  List<Object> get props => [data];
 }
 
 class FashionAdded extends FashionState {
