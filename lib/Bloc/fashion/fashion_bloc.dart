@@ -37,7 +37,11 @@ class FashionBloc extends Bloc<FashionEvent, FashionState> {
         } on SocketException {
           emit(const FashionHttpError("No Internet Connection"));
         } catch (err) {
-          emit(const FashionError("An Error Occured"));
+          if (err == "null") {
+            emit(FashionNoData(err.toString()));
+          } else {
+            emit(const FashionError("An Error Occured"));
+          }
         }
       }
     });

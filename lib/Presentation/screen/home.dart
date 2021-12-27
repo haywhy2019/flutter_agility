@@ -1,18 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:agility_app/Data/Models/home_slider.dart';
-import 'package:agility_app/Data/Repositiory/firebase_api.dart';
 import 'package:agility_app/Data/Repositiory/home_slider_repository.dart';
 import 'package:agility_app/Presentation/constants/const.dart';
 import 'package:agility_app/Presentation/widget/grid_items.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import "../../Bloc/home/home_slider_bloc.dart";
-
 import 'add_images.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  static String routeName = "/home";
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -35,19 +34,22 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         body: SingleChildScrollView(
-          child: BlocBuilder<HomeSliderBloc, HomeSliderState>(
-              builder: (context, state) {
-            if (state is HomeSliderInitial) {
-              return SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-                child:
-                    Center(child: CircularProgressIndicator(color: primaryCol)),
-              );
-            } else if (state is HomeSliderLoaded) {
-              return Column(
-                children: [
-                  SizedBox(
+          child: Column(
+            children: [
+              BlocBuilder<HomeSliderBloc, HomeSliderState>(
+                  builder: (context, state) {
+                print('$state, state');
+                if (state is HomeSliderInitial) {
+                  return Image.asset(
+                    "assets/images/image_error.png",
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                    color: Colors.black26,
+                    colorBlendMode: BlendMode.darken,
+                  );
+                } else if (state is HomeSliderLoaded) {
+                  return SizedBox(
                     height: 300,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,50 +65,67 @@ class _HomeScreenState extends State<HomeScreen> {
                                 })),
                       ],
                     ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            "Explore Essentials",
-                            style: mainHeading,
-                            textAlign: TextAlign.start,
-                          ),
-                          Text(
-                            "Services",
-                            style: TextStyle(
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold,
-                              color: primaryCol,
-                            ),
-                            textAlign: TextAlign.start,
-                          ),
-                          // TextButton(
-                          //     onPressed: () {
-                          //       showAlertDialog(context);
-                          //     },
-                          //     child: Text("press"))
-                        ],
+                  );
+                } else if (state is HomeSliderHttpError) {
+                  return Image.asset(
+                    "assets/images/image_error.png",
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                    color: Colors.black26,
+                    colorBlendMode: BlendMode.darken,
+                  );
+                } else {
+                  return Image.asset(
+                    "assets/images/image_error.png",
+                    height: 300,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
+                    color: Colors.black26,
+                    colorBlendMode: BlendMode.darken,
+                  );
+                }
+              }),
+              SizedBox(
+                width: double.infinity,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        "Explore Essentials",
+                        style: mainHeading,
+                        textAlign: TextAlign.start,
                       ),
-                    ),
+                      Text(
+                        "Services",
+                        style: TextStyle(
+                          fontSize: 35,
+                          fontWeight: FontWeight.bold,
+                          color: primaryCol,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                      // TextButton(
+                      //     onPressed: () {
+                      //       showAlertDialog(context);
+                      //     },
+                      //     child: Text("press"))
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: GridContainer(),
-                  ),
-                ],
-              );
-            } else {
-              return Text("An Error Occured");
-            }
-          }),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: GridContainer(),
+              ),
+            ],
+          ),
         ),
         floatingActionButton: FloatingActionButton(
+          backgroundColor: primaryCol,
           onPressed: () {
             Navigator.of(context).pushNamed(AddImages.routeName);
           },

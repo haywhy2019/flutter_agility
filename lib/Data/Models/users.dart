@@ -6,7 +6,7 @@ class Users extends Equatable {
   String id;
   String name;
   String title;
-  int phoneNumber;
+  String phoneNumber;
   String whatsApp;
   String image;
   String description;
@@ -29,7 +29,7 @@ class Users extends Equatable {
       id: id,
       name: jsonMap['name'] as String,
       title: jsonMap['title'] as String,
-      phoneNumber: jsonMap['phoneNumber'] as int,
+      phoneNumber: jsonMap['phoneNumber'] as String,
       whatsApp: jsonMap['whatsApp'] as String,
       description: jsonMap['description'] as String,
     );

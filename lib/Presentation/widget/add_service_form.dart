@@ -27,6 +27,7 @@ class AddServiceForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      lazy: false,
       create: (context) => FashionBloc(FashionRepository()),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -194,7 +195,7 @@ class AddServiceForm extends StatelessWidget {
                       final data = Users(
                         name: fullName.text,
                         title: title.text,
-                        phoneNumber: int.parse(phoneNumber.text),
+                        phoneNumber: phoneNumber.text,
                         whatsApp: whatsApp.text,
                         description: description.text,
                       );

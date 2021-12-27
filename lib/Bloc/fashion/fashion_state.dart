@@ -24,6 +24,14 @@ class FashionLoaded extends FashionState {
   List<Object> get props => [data];
 }
 
+
+class FashionNoData extends FashionState {
+  final String data;
+  const FashionNoData(this.data);
+  @override
+  List<Object> get props => [data];
+}
+
 class FashionAdded extends FashionState {
   final String data;
   const FashionAdded(this.data);

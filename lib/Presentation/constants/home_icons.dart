@@ -7,7 +7,6 @@ class IconsModel {
   IconsModel({required this.title, required this.icon, required this.screen});
 }
 
-
 List<IconsModel> homeIcons = [
   IconsModel(
     title: "Fashion",
@@ -34,7 +33,7 @@ List<IconsModel> homeIcons = [
     screen: "/lundary",
   ),
   IconsModel(
-    title: "Food",
+    title: "Food or Snacks",
     icon: Icons.restaurant_menu_rounded,
     screen: "/food",
   ),

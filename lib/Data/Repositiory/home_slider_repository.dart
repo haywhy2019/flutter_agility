@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:agility_app/Data/Models/home_slider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -6,14 +8,15 @@ abstract class HomeRepository {
 }
 
 class HomeSliderRepository implements HomeRepository {
-  @override
   static Future<List<String>> _getDownloadLinks(List<Reference> refs) =>
       Future.wait(refs.map((ref) => ref.getDownloadURL()).toList());
 
   @override
   Future<List<FirebaseFile>> listAll(String path) async {
     final ref = FirebaseStorage.instance.ref(path);
+
     final result = await ref.listAll();
+
     try {
       final urls = await _getDownloadLinks(result.items);
       // ignore: avoid_print
@@ -35,6 +38,10 @@ class HomeSliderRepository implements HomeRepository {
           })
           .values
           .toList();
+    } on FirebaseException catch (e) {
+      print("errrr working");
+      print(e.message);
+      rethrow;
     } catch (err) {
       rethrow;
     }

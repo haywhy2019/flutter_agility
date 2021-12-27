@@ -34,12 +34,14 @@ class FashionRepository implements ServiceRepository {
   Future fetchFashion() async {
     try {
       final response = await http.get(url);
+      if (response.body == "null") {
+        throw response.body;
+      }
       final responseDecode = json.decode(response.body) as Map<String, dynamic>;
       final List<Users> users = [];
       responseDecode.forEach((key, value) => {
             users.add(Users.fromJson(value, key)),
           });
-      // print(responseDecode);
       return users;
     } catch (err) {
       rethrow;

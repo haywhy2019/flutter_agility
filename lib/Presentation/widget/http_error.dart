@@ -13,6 +13,7 @@ class HttpErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      heightFactor: 3.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -43,7 +44,7 @@ class HttpErrorWidget extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                // context.read<FashionBloc>().add(ResetAddFashion());
+                context.read<FashionBloc>().add(ResetAddFashion());
               },
               child: const SizedBox(
                 width: 50,

@@ -1,4 +1,6 @@
 import 'package:agility_app/Bloc/fashion/fashion_bloc.dart';
+import 'package:agility_app/Presentation/screen/home.dart';
+import 'package:agility_app/Presentation/screen/services/fashion.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
@@ -220,7 +222,7 @@ class _AddServiceState extends State<AddService> {
                                   final data = Users(
                                     name: fullName.text,
                                     title: title.text,
-                                    phoneNumber: int.parse(phoneNumber.text),
+                                    phoneNumber: phoneNumber.text,
                                     whatsApp: whatsApp.text,
                                     description: description.text,
                                   );
@@ -286,7 +288,12 @@ class _AddServiceState extends State<AddService> {
                                 backgroundColor:
                                     MaterialStateProperty.all(Colors.white)),
                             onPressed: () {
-                              Navigator.pop(context);
+                              Navigator.pushReplacementNamed(
+                                  context, FashionScreen.routeName);
+                              // Navigator.pushNamedAndRemoveUntil(
+                              //     context,
+                              //     FashionScreen.routeName,
+                              //     ModalRoute.withName(FashionScreen.routeName));
                             },
                             child: const Text(
                               "Okay",

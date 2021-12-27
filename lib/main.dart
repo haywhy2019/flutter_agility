@@ -1,14 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:agility_app/Bloc/food/food_bloc.dart';
+import 'package:agility_app/Presentation/screen/services/add_delivery.dart';
+import 'package:agility_app/Presentation/screen/services/add_electrical.dart';
 import 'package:agility_app/Presentation/screen/services/add_fashion.dart';
+import 'package:agility_app/Presentation/screen/services/add_plumber.dart';
+import 'package:agility_app/Presentation/screen/services/add_shop.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'Presentation/constants/const.dart';
 import 'Presentation/screen/add_images.dart';
-import 'Presentation/screen/community.dart';
+import 'Presentation/screen/guide.dart';
 import 'Presentation/screen/home.dart';
 import 'Presentation/screen/services.dart';
+import 'Presentation/screen/services/add_food.dart';
 import 'Presentation/screen/services/delivery.dart';
 import 'Presentation/screen/services/eletricals.dart';
 import 'Presentation/screen/services/fashion.dart';
@@ -47,6 +53,7 @@ class MyApp extends StatelessWidget {
           // pageTransitionType: PageTransitionType.scale,
           backgroundColor: Colors.white),
       routes: {
+        HomeScreen.routeName: (ctx) => HomeScreen(),
         AddImages.routeName: (ctx) => AddImages(),
         FashionScreen.routeName: (ctx) => FashionScreen(),
         DeliveryScreen.routeName: (ctx) => DeliveryScreen(),
@@ -55,6 +62,11 @@ class MyApp extends StatelessWidget {
         PlumbingScreen.routeName: (ctx) => PlumbingScreen(),
         ElectricalScreen.routeName: (ctx) => ElectricalScreen(),
         AddService.routeName: (ctx) => AddService(),
+        AddNewDelivery.routeName: (ctx) => AddNewDelivery(),
+        AddNewElectrical.routeName: (ctx) => AddNewElectrical(),
+        AddNewPlumber.routeName: (ctx) => AddNewPlumber(),
+        AddNewFood.routeName: (ctx) => AddNewFood(),
+        AddNewShop.routeName: (ctx) => AddNewShop()
       },
     );
   }
@@ -92,7 +104,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     ShopScreen(),
-    ServiceScreen(),
+    // ServiceScreen(),
     CommunityScreen()
   ];
 
@@ -132,17 +144,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             label: 'Shop',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_repair_service_outlined,
-              color: bottomMenuIconCol,
-            ),
-            activeIcon: Icon(
-              Icons.home_repair_service_outlined,
-              color: primaryCol,
-            ),
-            label: 'Services',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(
+          //     Icons.home_repair_service_outlined,
+          //     color: bottomMenuIconCol,
+          //   ),
+          //   activeIcon: Icon(
+          //     Icons.home_repair_service_outlined,
+          //     color: primaryCol,
+          //   ),
+          //   label: 'Services',
+          // ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.comment_bank_outlined,
@@ -152,7 +164,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               Icons.comment_bank_outlined,
               color: primaryCol,
             ),
-            label: 'Community',
+            label: 'Guide',
           ),
         ],
         currentIndex: _selectedIndex,

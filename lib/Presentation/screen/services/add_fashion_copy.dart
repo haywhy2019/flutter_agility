@@ -202,7 +202,6 @@ class _AddServiceState extends State<AddService> {
                   BlocConsumer<FashionBloc, FashionState>(
                     listener: (context, state) {},
                     builder: (context, state) {
-                     
                       if (state is FashionInitial) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 15),
@@ -217,7 +216,7 @@ class _AddServiceState extends State<AddService> {
                                 final data = Users(
                                   name: fullName.text,
                                   title: title.text,
-                                  phoneNumber: int.parse(phoneNumber.text),
+                                  phoneNumber: phoneNumber.text,
                                   whatsApp: whatsApp.text,
                                   description: description.text,
                                 );
