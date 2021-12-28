@@ -72,6 +72,11 @@ class _ShopScreenState extends State<ShopScreen> {
             ),
             BlocBuilder<ShopBloc, ShopState>(
               builder: (context, state) {
+                if (state is ShopInitial) {
+                  return const Loader(
+                    minusHeight: 300,
+                  );
+                }
                 if (state is ShopLoading) {
                   return const Loader(
                     minusHeight: 300,
@@ -84,6 +89,7 @@ class _ShopScreenState extends State<ShopScreen> {
                 } else if (state is ShopNoData) {
                   return const NoDataWidget(mesg: "No Shop Registered yet");
                 } else {
+                  print(state);
                   return const CustomError();
                 }
               },
