@@ -145,7 +145,7 @@ class LundaryHttpErrors extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.read<LundaryBloc>().add(const ResetAddLundary());
+                  Navigator.popAndPushNamed(context, LundaryScreen.routeName);
                 },
                 child: const SizedBox(
                   width: 50,

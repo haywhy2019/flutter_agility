@@ -145,7 +145,7 @@ class FoodHttpErrors extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.read<FoodBloc>().add(const ResetAddFood());
+                  Navigator.popAndPushNamed(context, FoodScreen.routeName);
                 },
                 child: const SizedBox(
                   width: 50,

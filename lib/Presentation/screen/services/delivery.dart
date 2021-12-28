@@ -1,11 +1,8 @@
 import 'package:agility_app/Bloc/delivery/delivery_bloc.dart';
-import 'package:agility_app/Bloc/fashion/fashion_bloc.dart';
 import 'package:agility_app/Data/Repositiory/delivery_repo.dart';
-import 'package:agility_app/Data/Repositiory/fashion_repo.dart';
 import 'package:agility_app/Presentation/constants/const.dart';
 import 'package:agility_app/Presentation/screen/services/add_delivery.dart';
 import 'package:agility_app/Presentation/widget/error.dart';
-import 'package:agility_app/Presentation/widget/http_error.dart';
 import 'package:agility_app/Presentation/widget/loader.dart';
 import 'package:agility_app/Presentation/widget/no_data_widget.dart';
 import 'package:agility_app/Presentation/widget/users_card.dart';
@@ -149,7 +146,7 @@ class DeliveryHttpErrors extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.read<DeliveryBloc>().add(ResetAddDelivery());
+                  Navigator.popAndPushNamed(context, DeliveryScreen.routeName);
                 },
                 child: const SizedBox(
                   width: 50,

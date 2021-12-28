@@ -78,7 +78,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                                   horizontal: 30, vertical: 10)),
                           onPressed: () {
                             url_launcher.launch(
-                              "https://wa.me/07085939928/?text=$businessText",
+                              "https://wa.me/23407085939928/?text=$businessText",
                               forceSafariVC: false,
                               forceWebView: false,
                             );
@@ -145,7 +145,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                                   horizontal: 30, vertical: 10)),
                           onPressed: () {
                             url_launcher.launch(
-                              "https://wa.me/07085939928/?text=$userText",
+                              "https://wa.me/23407085939928/?text=$userText",
                               forceSafariVC: false,
                               forceWebView: false,
                             );

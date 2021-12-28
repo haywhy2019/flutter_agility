@@ -144,7 +144,7 @@ class PlumbingHttpErrors extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.read<PlumbingBloc>().add(const ResetAddPlumbing());
+                  Navigator.popAndPushNamed(context, PlumbingScreen.routeName);
                 },
                 child: const SizedBox(
                   width: 50,

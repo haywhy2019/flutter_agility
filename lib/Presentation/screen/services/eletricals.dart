@@ -145,7 +145,8 @@ class ElectricalHttpErrors extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  context.read<ElectricalBloc>().add(ResetAddElectrical());
+                  Navigator.popAndPushNamed(
+                      context, ElectricalScreen.routeName);
                 },
                 child: const SizedBox(
                   width: 50,
