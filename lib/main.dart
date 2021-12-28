@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
-
-import 'package:agility_app/Bloc/food/food_bloc.dart';
 import 'package:agility_app/Presentation/screen/services/add_delivery.dart';
 import 'package:agility_app/Presentation/screen/services/add_electrical.dart';
 import 'package:agility_app/Presentation/screen/services/add_fashion.dart';
+import 'package:agility_app/Presentation/screen/services/add_lundary.dart';
 import 'package:agility_app/Presentation/screen/services/add_plumber.dart';
 import 'package:agility_app/Presentation/screen/services/add_shop.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -13,7 +12,6 @@ import 'Presentation/constants/const.dart';
 import 'Presentation/screen/add_images.dart';
 import 'Presentation/screen/guide.dart';
 import 'Presentation/screen/home.dart';
-import 'Presentation/screen/services.dart';
 import 'Presentation/screen/services/add_food.dart';
 import 'Presentation/screen/services/delivery.dart';
 import 'Presentation/screen/services/eletricals.dart';
@@ -66,7 +64,8 @@ class MyApp extends StatelessWidget {
         AddNewElectrical.routeName: (ctx) => AddNewElectrical(),
         AddNewPlumber.routeName: (ctx) => AddNewPlumber(),
         AddNewFood.routeName: (ctx) => AddNewFood(),
-        AddNewShop.routeName: (ctx) => AddNewShop()
+        AddNewShop.routeName: (ctx) => AddNewShop(),
+        AddNewLundary.routeName: (ctx) => AddNewLundary(),
       },
     );
   }
