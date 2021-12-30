@@ -21,6 +21,7 @@ import 'Presentation/screen/services/lundary.dart';
 import 'Presentation/screen/services/plumbling.dart';
 import 'Presentation/screen/shop.dart';
 import 'Presentation/screen/splash.dart';
+import 'package:new_version/new_version.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -83,6 +84,28 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
   bool showDialog = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _checkVersion();
+  }
+
+  void _checkVersion() async {
+    print("working");
+    final newVersion = NewVersion(
+      androidId: 'com.example.agility_app',
+      // androidId: 'com.snapchat.android',
+    );
+    // newVersion.showAlertIfNecessary(context: context);
+
+    final status = await newVersion.getVersionStatus();
+
+    if (status != null) {
+      newVersion.showUpdateDialog(context: context, versionStatus: status);
+    }
+  }
 
   @override
   void didChangeDependencies() {
@@ -205,7 +228,7 @@ showAlertDialog(BuildContext context) {
       child: Column(
         children: const [
           Text(
-            "We do not have any partnership with the services listed here, We just make it easy for you to know where to get this services",
+            "We do not have any partnership with the services listed here, We just make it easy to access this services.",
             style: TextStyle(color: Colors.white),
           )
         ],

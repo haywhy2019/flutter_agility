@@ -18,7 +18,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     String businessText =
         "Good%20Day%2C%20i%20%20am%20chatting%20from%20agility%20App%2C%20I%20want%20to%20register%20as%20a%20business.";
     String userText =
-        'Good%20Day%2C%20i%20%20am%20chatting%20from%20agility%20App%2C%20i%20want%20to%20report%20a%20scam%20by%20a%20vendor%20or%20suggest%a%feature.';
+        'Good%20Day%2C%20i%20%20am%20chatting%20from%20agility%20App%2C%20i%20want%20to%20report%20a%20scam%20by%20a%20vendor%20or%20suggest%20a%20feature.';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -78,7 +78,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
                                   horizontal: 30, vertical: 10)),
                           onPressed: () {
                             url_launcher.launch(
-                              "https://wa.me/23407085939928/?text=$businessText",
+                              // "https://wa.me/23407085939928/?text=$businessText",
+                              "https://api.whatsapp.com/send?phone=23407085939928&text=$businessText",
                               forceSafariVC: false,
                               forceWebView: false,
                             );
