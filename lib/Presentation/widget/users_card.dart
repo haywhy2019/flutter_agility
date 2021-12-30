@@ -90,7 +90,7 @@ class UsersCard extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       url_launcher.launch(
-                                        "https://wa.me/234${data[index].phoneNumber}/?text=$whatsappText",
+                                        "https://api.whatsapp.com/send?phone=234${data[index].phoneNumber}&text=$whatsappText",
                                         forceSafariVC: false,
                                         forceWebView: false,
                                       );
