@@ -16,11 +16,14 @@ class HomeSliderBloc extends Bloc<HomeSliderEvent, HomeSliderState> {
       if (event is GetSlider) {
         try {
           final slider = await _homeRepository.listAll(event.folder);
-
-          emit(HomeSliderLoaded(slider));
+          if (slider.isEmpty) {
+            emit(const HomeSliderInitial());
+          } else {
+            emit(HomeSliderLoaded(slider));
+          }
         } on SocketException {
           emit(const HomeSliderHttpError("No Internet Connection"));
-        } on FirebaseException  {
+        } on FirebaseException {
           emit(const HomeSliderHttpError("No Internet Connection"));
         } catch (err) {
           emit(const HomeSliderError("An Error Occured"));

@@ -38,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               BlocBuilder<HomeSliderBloc, HomeSliderState>(
                   builder: (context, state) {
-                print('$state, state');
                 if (state is HomeSliderInitial) {
                   return Image.asset(
                     "assets/images/image_error.png",
