@@ -96,15 +96,15 @@ class _ShopScreenState extends State<ShopScreen> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryCol,
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddNewShop.routeName);
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: primaryCol,
+        //   onPressed: () {
+        //     Navigator.of(context).pushNamed(AddNewShop.routeName);
+        //   },
+        //   child: const Icon(
+        //     Icons.add,
+        //   ),
+        // ),
       ),
     );
   }

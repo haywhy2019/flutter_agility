@@ -91,15 +91,15 @@ class _FoodScreenState extends State<FoodScreen> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryCol,
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddNewFood.routeName);
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: primaryCol,
+        //   onPressed: () {
+        //     Navigator.of(context).pushNamed(AddNewFood.routeName);
+        //   },
+        //   child: const Icon(
+        //     Icons.add,
+        //   ),
+        // ),
       ),
     );
   }

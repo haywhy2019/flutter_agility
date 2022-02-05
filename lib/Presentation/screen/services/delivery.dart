@@ -72,7 +72,6 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             ),
             BlocBuilder<DeliveryBloc, DeliveryState>(
               builder: (context, state) {
-                print(state);
                 if (state is DeliveryLoading) {
                   return const Loader(
                     minusHeight: 300,
@@ -92,15 +91,15 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryCol,
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddNewDelivery.routeName);
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: primaryCol,
+        //   onPressed: () {
+        //     Navigator.of(context).pushNamed(AddNewDelivery.routeName);
+        //   },
+        //   child: const Icon(
+        //     Icons.add,
+        //   ),
+        // ),
       ),
     );
   }

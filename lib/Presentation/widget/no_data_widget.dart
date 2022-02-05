@@ -10,14 +10,14 @@ class NoDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      heightFactor: 1.7,
+      heightFactor: 1.5,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(
           child: Column(
             children: [
               Image.asset("assets/images/waiting.png"),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   mesg,

@@ -93,15 +93,15 @@ class _FashionScreenState extends State<FashionScreen> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryCol,
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddService.routeName);
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: primaryCol,
+        //   onPressed: () {
+        //     Navigator.of(context).pushNamed(AddService.routeName);
+        //   },
+        //   child: const Icon(
+        //     Icons.add,
+        //   ),
+        // ),
       ),
     );
   }

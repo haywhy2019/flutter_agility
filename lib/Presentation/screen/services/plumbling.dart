@@ -90,15 +90,15 @@ class _PlumbingScreenState extends State<PlumbingScreen> {
             )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: primaryCol,
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddNewPlumber.routeName);
-          },
-          child: const Icon(
-            Icons.add,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: primaryCol,
+        //   onPressed: () {
+        //     Navigator.of(context).pushNamed(AddNewPlumber.routeName);
+        //   },
+        //   child: const Icon(
+        //     Icons.add,
+        //   ),
+        // ),
       ),
     );
   }
