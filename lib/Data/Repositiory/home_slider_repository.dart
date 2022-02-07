@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:agility_app/Data/Models/home_slider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
@@ -19,7 +17,7 @@ class HomeSliderRepository implements HomeRepository {
 
     try {
       final urls = await _getDownloadLinks(result.items);
-      // ignore: avoid_print
+ 
 
       return urls
           .asMap()
@@ -39,8 +37,7 @@ class HomeSliderRepository implements HomeRepository {
           .values
           .toList();
     } on FirebaseException catch (e) {
-      print("errrr working");
-      print(e.message);
+     
       rethrow;
     } catch (err) {
       rethrow;

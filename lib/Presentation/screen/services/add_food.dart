@@ -214,7 +214,6 @@ class _AddNewFoodState extends State<AddNewFood> {
                                   backgroundColor:
                                       MaterialStateProperty.all(primaryCol)),
                               onPressed: () {
-                                print("${description.text}, description");
                                 if (_formKey.currentState!.validate()) {
                                   final data = Users(
                                     name: fullName.text,

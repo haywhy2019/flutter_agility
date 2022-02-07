@@ -18,14 +18,14 @@ class Storage {
     try {
       await storage.ref('home/$fileName').putFile(file);
     } on firebase_core.FirebaseException catch (e) {
-      print(e);
+      e;
     }
   }
 
   Future<firebase_storage.ListResult> listFiles() async {
     firebase_storage.ListResult results = await storage.ref('home').listAll();
     results.items.forEach((firebase_storage.Reference ref) {
-      // print('found file $ref');
+    
     });
     return results;
   }
@@ -34,5 +34,4 @@ class Storage {
     String downloadURL = await storage.ref('home/$imageName').getDownloadURL();
     return downloadURL;
   }
-
 }

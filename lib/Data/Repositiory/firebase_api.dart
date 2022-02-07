@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:agility_app/Data/Models/home_slider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 

@@ -89,7 +89,6 @@ class _ShopScreenState extends State<ShopScreen> {
                 } else if (state is ShopNoData) {
                   return const NoDataWidget(mesg: "No Shop Registered yet");
                 } else {
-                  print(state);
                   return const CustomError();
                 }
               },

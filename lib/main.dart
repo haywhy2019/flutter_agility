@@ -93,7 +93,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   void _checkVersion() async {
-    print("working");
     final newVersion = NewVersion(
       androidId: 'com.example.agility_app',
       // androidId: 'com.snapchat.android',

@@ -73,7 +73,6 @@ class _FashionScreenState extends State<FashionScreen> {
             ),
             BlocBuilder<FashionBloc, FashionState>(
               builder: (context, state) {
-                print(state);
                 if (state is FashionLoading) {
                   return const Loader(
                     minusHeight: 300,

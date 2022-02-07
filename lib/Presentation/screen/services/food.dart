@@ -71,7 +71,6 @@ class _FoodScreenState extends State<FoodScreen> {
             ),
             BlocBuilder<FoodBloc, FoodState>(
               builder: (context, state) {
-                print(state);
                 if (state is FoodLoading) {
                   return const Loader(
                     minusHeight: 300,

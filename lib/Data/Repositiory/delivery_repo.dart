@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:agility_app/Data/Models/users.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -34,8 +32,7 @@ class DeliveryRepository implements ServiceRepository {
   Future fetchDelivery() async {
     try {
       final response = await http.get(url);
-      // print("response, ${json.decode(response.body)}");
-      // print("response,  ${response.body.runtimeType}");
+
       // ignore: unnecessary_null_comparison
       if (response.body != "null") {
         final responseDecode =
