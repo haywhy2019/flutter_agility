@@ -41,15 +41,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (state is HomeSliderInitial) {
                   return Image.asset(
                     "assets/images/image_error.png",
-                    height: 300,
-                    width: MediaQuery.of(context).size.width,
+                    height: 400,
+                    width: 400,
                     fit: BoxFit.cover,
                     color: Colors.black26,
                     colorBlendMode: BlendMode.darken,
                   );
                 } else if (state is HomeSliderLoaded) {
                   return SizedBox(
-                    height: 300,
+                    height: 400,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -68,8 +68,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else if (state is HomeSliderHttpError) {
                   return Image.asset(
                     "assets/images/image_error.png",
-                    height: 300,
-                    width: MediaQuery.of(context).size.width,
+                    height: 400,
+                    width: 400,
                     fit: BoxFit.cover,
                     color: Colors.black26,
                     colorBlendMode: BlendMode.darken,
@@ -138,12 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
 Widget buildFile(BuildContext context, FirebaseFile file) {
   double mobileWidth = MediaQuery.of(context).size.width;
   return Stack(
-    clipBehavior: Clip.none,
     children: [
       Image.network(
         file.url,
-        width: mobileWidth,
-        height: 700,
+        width: 400,
+        height: 400,
         fit: BoxFit.fill,
         color: Colors.black26,
         colorBlendMode: BlendMode.darken,
