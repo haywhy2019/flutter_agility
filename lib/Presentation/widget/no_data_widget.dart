@@ -10,7 +10,7 @@ class NoDataWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      heightFactor: 1.5,
+      heightFactor: 1.3,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Card(

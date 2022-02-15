@@ -138,12 +138,13 @@ class _HomeScreenState extends State<HomeScreen> {
 Widget buildFile(BuildContext context, FirebaseFile file) {
   double mobileWidth = MediaQuery.of(context).size.width;
   return Stack(
+    clipBehavior: Clip.none,
     children: [
       Image.network(
         file.url,
         width: mobileWidth,
-        height: 400,
-        fit: BoxFit.cover,
+        height: 700,
+        fit: BoxFit.fill,
         color: Colors.black26,
         colorBlendMode: BlendMode.darken,
       ),
@@ -174,31 +175,31 @@ Widget buildFile(BuildContext context, FirebaseFile file) {
           ),
         ),
       ),
-      Positioned(
-        bottom: 20,
-        width: mobileWidth,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    file.name,
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      )
+      // Positioned(
+      //   bottom: 20,
+      //   width: mobileWidth,
+      //   child: Padding(
+      //     padding: const EdgeInsets.symmetric(horizontal: 15),
+      //     child: Row(
+      //       crossAxisAlignment: CrossAxisAlignment.end,
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [
+      //         Column(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: [
+      //             Text(
+      //               file.name,
+      //               style: TextStyle(
+      //                   fontSize: 15,
+      //                   color: Colors.white,
+      //                   fontWeight: FontWeight.bold),
+      //             ),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // )
     ],
   );
 }

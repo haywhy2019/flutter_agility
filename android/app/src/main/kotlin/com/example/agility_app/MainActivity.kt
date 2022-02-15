@@ -1,4 +1,4 @@
-package com.example.agility_app
+package com.flint.agility_app
 
 import io.flutter.embedding.android.FlutterActivity
 

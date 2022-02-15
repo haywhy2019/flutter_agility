@@ -94,16 +94,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   void _checkVersion() async {
     final newVersion = NewVersion(
-      androidId: 'com.example.agility_app',
+      androidId: 'com.flint.agility_app',
       // androidId: 'com.snapchat.android',
     );
-    // newVersion.showAlertIfNecessary(context: context);
 
-    final status = await newVersion.getVersionStatus();
-
-    if (status != null) {
-      newVersion.showUpdateDialog(context: context, versionStatus: status);
-    }
+    newVersion.showAlertIfNecessary(context: context);
   }
 
   @override
